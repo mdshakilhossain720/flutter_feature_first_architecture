@@ -1,6 +1,8 @@
 # featurebase
 
 A new Flutter project.
+https://fakestoreapi.com/products
+https://jsonplaceholder.typicode.com/
 
 ## Getting Started
 
