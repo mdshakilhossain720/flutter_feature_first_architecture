@@ -40,7 +40,8 @@ class UserItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(name,
-                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 4),
             Text('@$username', style: const TextStyle(color: Colors.grey)),
             const SizedBox(height: 8),
@@ -53,7 +54,8 @@ class UserItem extends StatelessWidget {
             const SizedBox(height: 12),
             Text('🏢 Company:', style: TextStyle(fontWeight: FontWeight.bold)),
             Text(companyName),
-            Text('"$catchPhrase"', style: TextStyle(fontStyle: FontStyle.italic)),
+            Text('"$catchPhrase"',
+                style: TextStyle(fontStyle: FontStyle.italic)),
           ],
         ),
       ),

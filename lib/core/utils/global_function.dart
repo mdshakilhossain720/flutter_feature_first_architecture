@@ -17,14 +17,12 @@ class GlobalFunction {
       behavior: SnackBarBehavior.floating,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.r)),
       backgroundColor: isSuccess ? Colors.green : Colors.red,
-      dismissDirection: isTop
-          ? DismissDirection.startToEnd
-          : DismissDirection.down,
+      dismissDirection:
+          isTop ? DismissDirection.startToEnd : DismissDirection.down,
       content: Text(message, style: TextStyle(fontSize: 12.sp)),
       margin: isTop
           ? EdgeInsets.only(
-              bottom:
-                  MediaQuery.of(
+              bottom: MediaQuery.of(
                     scaffoldMessengerKey.currentState!.context,
                   ).size.height -
                   160,

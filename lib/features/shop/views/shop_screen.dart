@@ -1,4 +1,3 @@
-
 // Full screen with ListView.builder
 import 'package:flutter/material.dart';
 
