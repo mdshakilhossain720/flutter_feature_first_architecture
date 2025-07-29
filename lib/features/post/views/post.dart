@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../logic/post_controller.dart';
 import 'widgets/post_item.dart';
 
 class PostListScreen extends StatelessWidget {
@@ -24,6 +25,7 @@ class PostListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //final post = ref.watch(postControllerProvider);
     return Scaffold(
       appBar: AppBar(title: const Text("Posts")),
       body: ListView.builder(

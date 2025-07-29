@@ -29,3 +29,7 @@ class PostController extends StateNotifier<AsyncValue<PostModel>>{
 
 
 }
+
+final postControllerProvider = StateNotifierProvider<PostController, AsyncValue<PostModel>>((ref) {
+  return PostController(ref);
+});
