@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../logic/post_controller.dart';
 import 'widgets/post_item.dart';
 
-class PostListScreen extends StatelessWidget {
+class PostListScreen extends ConsumerWidget {
   const PostListScreen({super.key});
 
   final List<Map<String, dynamic>> postData = const [
@@ -24,21 +25,38 @@ class PostListScreen extends StatelessWidget {
   ];
 
   @override
-  Widget build(BuildContext context) {
-    //final post = ref.watch(postControllerProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final post = ref.watch(postControllerProvider);
     return Scaffold(
       appBar: AppBar(title: const Text("Posts")),
-      body: ListView.builder(
-        itemCount: postData.length,
-        itemBuilder: (context, index) {
-          final post = postData[index];
-          return PostItem(
-            userId: post['userId'],
-            id: post['id'],
-            title: post['title'],
-            body: post['body'],
+      body: post.when(
+        data: (data) {
+          return ListView.builder(
+            itemCount:data.length,
+            itemBuilder: (context, index) {
+              final post = data[index];
+              return PostItem(
+                userId: post.id ?? 0,
+                id: post.userId ?? 0,
+                title: post.title ?? '',
+                body: post.body ?? '',
+              );
+            },
           );
         },
+        // child: ListView.builder(
+        //   itemCount: postData.length,
+        //   itemBuilder: (context, index) {
+        //     final post = postData[index];
+        //     return PostItem(
+        //       userId: post['userId'],
+        //       id: post['id'],
+        //       title: post['title'],
+        //       body: post['body'],
+        //     );
+        //   },
+        // ),
+         error: (Object error, StackTrace stackTrace) {  }, loading: () {  },
       ),
     );
   }
